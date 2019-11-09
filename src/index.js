@@ -1,12 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./component/App";
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// We wanna call require from Firebase
+const firebase = require("firebase");
+require("firebase/firestore");
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDnQgfqLEesWnXrIlQQVlRx_36DA2aQpK8",
+  authDomain: "note-taking-app-69381.firebaseapp.com",
+  databaseURL: "https://note-taking-app-69381.firebaseio.com",
+  projectId: "note-taking-app-69381",
+  storageBucket: "note-taking-app-69381.appspot.com",
+  messagingSenderId: "629945282245",
+  appId: "1:629945282245:web:bceefb8a75f45ea164caac",
+  measurementId: "G-G2KCS3FNNB"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+ReactDOM.render(<App />, document.getElementById("root"));
 serviceWorker.unregister();
