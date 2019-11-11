@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import SideBarComponent from "./sidebar/sidebar";
+import EditorComponent from "./editor/editor";
 
 // Importing Firebase
 const firebase = require("firebase");
@@ -15,7 +17,15 @@ export default class App extends Component {
   }
 
   render() {
-    return <div>App class</div>;
+    return (
+      <div className="app-container">
+        <SideBarComponent
+          selectedNoteIndex={this.state.selectedNoteIndex}
+          notes={this.state.notes}
+        />
+        <EditorComponent />
+      </div>
+    );
   }
 
   // Whenever App component is loaded succeful inside of the DOM,
